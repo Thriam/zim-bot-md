@@ -5,7 +5,7 @@ let handler = async ({ command }) => {
             await m.reply('Hai')
             await delay(1 * 2000) // Delaynya
         }
-        await m.reply('Succes!!')
+        await m.reply('Success!!')
     } else if (args[0] || args.length > 0) {
         let ada = chat.find(bot => bot == args[0]) // Apakah botnya ada disitu
         if (!ada) throw 'Zim Bot ls not in that group!!'
