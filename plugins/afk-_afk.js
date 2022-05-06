@@ -18,7 +18,7 @@ export function before(m) {
             continue
         let reason = user.afkReason || ''
         m.reply(`
-  Dont tag him dia!
+  Try messaging in personal chat!
   The owner is currently AFK ${reason ? 'with reason ' + reason : 'no reason'}
   During ${(new Date - afkTime).toTimeString()}
   `.trim())
