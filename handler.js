@@ -44,7 +44,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.exp))
                     user.exp = 0
                 if (!isNumber(user.limit))
-                    user.limit = 999999999999
+                    user.limit = Infinity
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
                 if (!('registered' in user))
@@ -77,7 +77,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.health))
                     user.health = 100
                 if (!isNumber(user.limit))
-                    user.limit = 99999999999999
+                    user.limit = Infinity
                 if (!isNumber(user.potion))
                     user.potion = 0
                 if (!isNumber(user.trash))
@@ -175,7 +175,7 @@ export async function handler(chatUpdate) {
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
-                    limit: 99999999999999,
+                    limit: Infinity,
                     lastclaim: 0,
                     registered: false,
                     name: m.name,
@@ -191,7 +191,7 @@ export async function handler(chatUpdate) {
 
                     money: 0,
                     health: 100,
-                    limit: 99999999999999,
+                    limit: Infinity,
                     potion: 10,
                     trash: 0,
                     wood: 0,
@@ -629,8 +629,8 @@ export async function participantsUpdate({ id, participants, action }) {
                         pp = await this.profilePictureUrl(user, 'image')
                     } catch (e) {
                     } finally {
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '𝗛𝗶 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱, @user!\n𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 @subject\n\n@desc\𝗳𝗲𝗲𝗹 𝗮𝘁 𝗵𝗼𝗺𝗲, 𝗯𝘆 𝗼𝗳𝗳𝗲𝗻𝘀𝗶𝘃𝗲 𝘀𝗲𝗰𝘂𝗿𝗶𝘁𝘆 𝗵𝗮𝗰𝗸𝗶𝗻𝗴 𝗶𝘀 𝗼𝘂𝗿 𝗹𝗲𝗴𝗮𝗰𝘆').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
-                            (chat.sBye || this.bye || conn.bye || '𝗕𝘆𝗲 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱 @user!\n𝗗𝗼𝗻𝘁 𝗰𝗼𝗺𝗲 𝗯𝗮𝗰𝗸 𝗵𝗲𝗿𝗲')).replace('@user', '@' + user.split('@')[0])
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '𝗛𝗶 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱, @user!\n𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 @subject\n\n@desc\n𝗳𝗲𝗲𝗹 𝗮𝘁 𝗵𝗼𝗺𝗲, Myself Thriam bakesvar B').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
+                            (chat.sBye || this.bye || conn.bye || '𝗕𝘆𝗲 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱 @user!\nHope you will come back here again')).replace('@user', '@' + user.split('@')[0])
                             let apii = await this.getFile(pp)
                             this.sendButton(id, text, groupMetadata.subject, apii.data, [[(action == 'add' ? 'WELCOME' : 'BYE'), 'ura']], '',  { mentions: [user], asLocation: true })
                         }
@@ -661,7 +661,7 @@ export async function groupsUpdate(groupsUpdate) {
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
         if (!chats?.detect) continue
-        if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '𝙏𝙝𝙚 𝘿𝙚𝙨𝙘𝙧𝙞𝙥𝙩𝙞𝙣 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 \n@desc').replace('@desc', groupUpdate.desc)
+        if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'The description has been changed \n@desc').replace('@desc', groupUpdate.desc)
         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '𝙂𝙧𝙤𝙪𝙥 𝙎𝙪𝙗𝙟𝙚𝙘𝙩 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 \n@subject').replace('@subject', groupUpdate.subject)
         if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '𝙂𝙧𝙤𝙪𝙥 𝙞𝙘𝙤𝙣 𝙪𝙥𝙙𝙖𝙩𝙚𝙙!').replace('@icon', groupUpdate.icon)
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '𝙂𝙧𝙤𝙪𝙥 𝙡𝙞𝙣𝙠 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 𝙩𝙤 \n@revoke').replace('@revoke', groupUpdate.revoke)
