@@ -159,11 +159,11 @@ global.reloadHandler = async function (restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
-  conn.welcome = '𝗛𝗶 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱, @user!\n𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 @subject\n\n@desc\𝗳𝗲𝗲𝗹 𝗮𝘁 𝗵𝗼𝗺𝗲, 𝗯𝘆 𝗼𝗳𝗳𝗲𝗻𝘀𝗶𝘃𝗲 𝘀𝗲𝗰𝘂𝗿𝗶𝘁𝘆 𝗵𝗮𝗰𝗸𝗶𝗻𝗴 𝗶𝘀 𝗼𝘂𝗿 𝗹𝗲𝗴𝗮𝗰𝘆'
-  conn.bye = '𝗕𝘆𝗲 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱 @user!\n𝗗𝗼𝗻𝘁 𝗰𝗼𝗺𝗲 𝗯𝗮𝗰𝗸 𝗵𝗲𝗿𝗲'
+  conn.welcome = '𝗛𝗶 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱, @user!\n𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 @subject\n\n@desc\n𝗳𝗲𝗲𝗹 𝗮𝘁 𝗵𝗼𝗺𝗲, Myself Thriam bakesvarB'
+  conn.bye = '𝗕𝘆𝗲 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱 @user!\nHope you will come back here again'
   conn.spromote = '@user 𝙥𝙧𝙤𝙢𝙤𝙩𝙚𝙙 𝙖𝙙𝙢𝙞𝙣 𝙧𝙤𝙡𝙚 𝙜𝙞𝙫𝙚𝙣😻'
   conn.sdemote = '@user 𝙙𝙚𝙢𝙤𝙩𝙚𝙙 𝙮𝙤𝙪 𝙖𝙧𝙚 𝙣𝙤𝙩 𝙖𝙙𝙢𝙞𝙣 𝙖𝙣𝙮𝙢𝙤𝙧𝙚💥'
-  conn.sDesc = '𝙏𝙝𝙚 𝘿𝙚𝙨𝙘𝙧𝙞𝙥𝙩𝙞𝙣 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 \n@desc'
+  conn.sDesc = 'The description has been changed \n@desc'
   conn.sSubject = '𝙂𝙧𝙤𝙪𝙥 𝙎𝙪𝙗𝙟𝙚𝙘𝙩 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 \n@subject'
   conn.sIcon = '𝙂𝙧𝙤𝙪𝙥 𝙞𝙘𝙤𝙣 𝙪𝙥𝙙𝙖𝙩𝙚𝙙!'
   conn.sRevoke = '𝙂𝙧𝙤𝙪𝙥 𝙡𝙞𝙣𝙠 𝙝𝙖𝙨 𝙗𝙚𝙚𝙣 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 𝙩𝙤 \n@revoke'
@@ -268,7 +268,7 @@ async function _quickTest() {
 
   if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
   if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
-  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick to use Zim bot stickers)')
+  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick to use stickers)')
 }
 
 _quickTest()
