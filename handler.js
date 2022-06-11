@@ -620,7 +620,7 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-        case 'remove':
+        /*case 'remove':
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
@@ -636,7 +636,7 @@ export async function participantsUpdate({ id, participants, action }) {
                         }
                 }
             }
-            break
+            break*/
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user 𝙥𝙧𝙤𝙢𝙤𝙩𝙚𝙙 𝙖𝙙𝙢𝙞𝙣 𝙧𝙤𝙡𝙚 𝙜𝙞𝙫𝙚𝙣😻')
         case 'demote':
