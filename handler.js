@@ -620,7 +620,7 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-        /*case 'remove':
+        case 'remove':
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
@@ -632,11 +632,11 @@ export async function participantsUpdate({ id, participants, action }) {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '𝗛𝗶 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱, @user!\n𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 @subject\n\n@desc\n𝗳𝗲𝗲𝗹 𝗮𝘁 𝗵𝗼𝗺𝗲, Myself Thriam bakesvar B').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '𝗕𝘆𝗲 𝗺𝘆 𝗹𝗼𝘃𝗲𝗹𝘆 𝗳𝗿𝗶𝗲𝗻𝗱 @user!\nHope you will come back here again')).replace('@user', '@' + user.split('@')[0])
                             let apii = await this.getFile(pp)
-                            this.sendButton(id, text, groupMetadata.subject, apii.data, [[(action == 'add' ? 'WELCOME' : 'BYE'), 'ura']], '',  { mentions: [user], asLocation: true })
+                            //this.sendButton(id, text, groupMetadata.subject, apii.data, [[(action == 'add' ? 'WELCOME' : 'BYE'), 'ura']], '',  { mentions: [user], asLocation: true })
                         }
                 }
             }
-            break*/
+            break
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user 𝙥𝙧𝙤𝙢𝙤𝙩𝙚𝙙 𝙖𝙙𝙢𝙞𝙣 𝙧𝙤𝙡𝙚 𝙜𝙞𝙫𝙚𝙣😻')
         case 'demote':
