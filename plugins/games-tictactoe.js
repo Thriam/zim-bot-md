@@ -57,5 +57,5 @@ ${usedPrefix}${command} ${text}` : ''))
 handler.help = ['tictactoe', 'ttt'].map(v => v + '')
 handler.tags = ['game']
 handler.command = /^(tictactoe|t{3})$/
-
+handler.admin = true
 export default handler
